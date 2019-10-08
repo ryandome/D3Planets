@@ -1,3 +1,31 @@
+var names = ["one","two","three"];
+
+var pDiv = d3.select("#A1").append("p").text(names);
+
+var pPara = d3.select("A2").selectAll("p").data(names).enter().append("p")
+.text(names);
+
+var planetPromise = d3.json("planets.json");
+   
+planetPromise.then(
+function(data)
+{ 
+    drawPlanets(data);
+    console.log("works",data);
+}
+function(err)
+{
+    d3.select("h1").text("Error Found");
+    console.log("broke",err);
+})    
+
+var drawPlanets = function(planData)
+{
+    var plan = d3.select("#B3").append("img");
+    
+    
+}
+
 
 
 
